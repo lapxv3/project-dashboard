@@ -55,7 +55,7 @@ const BannerTable = ({ listOfBanners }: Props) => {
   };
 
   const router = useRouter();
-  router.refresh();
+  // router.refresh();
   async function deleteBanner(id: any) {
 
     const responseDelete = await bannerApi.deleteBanner(id);

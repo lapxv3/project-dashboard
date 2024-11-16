@@ -82,14 +82,16 @@ const BrandForm = () => {
 
   const submitData = async (data: any) => {
     try {
-      const formData = serialize(data)
-      const response = await brandApi.createBrand(formData);
+      // const formData = serialize(data)
+      // const response = await brandApi.createBrand(formData);
 
-      if (response.data.success == true) {
+      // if (response.data.success == true) {
 
-        toast.success('Brand Added Successfully.')
-        router.push("/tables/brands");
-      }
+      //   toast.success('Brand Added Successfully.')
+      //   router.push("/tables/brands");
+      // }
+      toast.success('Brand Added Successfully.')
+      router.push("/tables/brands");
     } catch (error: any) {
       if (error.response.status == 404) {
         toast.error(error.message)

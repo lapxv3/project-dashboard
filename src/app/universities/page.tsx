@@ -1,16 +1,15 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import SubCategoryTable from "@/components/Tables/SubCategory";
-import { PackageNavigation } from "@/types/packageNavigation";
+import BrandTable from "@/components/Tables/Brand";
+import { brandApi } from "@/api/brandApi";
 import toast from "react-hot-toast";
-import { subCategoryApi } from "@/api/subCategoryApi";
+import { PackageNavigation } from "@/types/packageNavigation";
 
 export const metadata: Metadata = {
   title: "Next.js Tables Page | NextAdmin - Next.js Dashboard Kit",
   description: "This is Next.js Tables page for NextAdmin Dashboard Kit",
 };
-
 
 const packageData: PackageNavigation[] = [
   {
@@ -18,29 +17,34 @@ const packageData: PackageNavigation[] = [
     link:'/'
   },
   {
-    name:'Sub-Categories ',
-    link:'/tables/subCategories'
+    name:'Brands ',
+    link:'/tables/brands'
   },
 ];
 
-async function getAllSubCategories() {
+async function getAllBrands() {
 try {
-  const response = await subCategoryApi.getAllSubCategories();
+  const response = await brandApi.getAllBrands();
   return response.data;
 } catch (error:any) {
-  toast.error(error.message)
-  console.log(error)
-}
-}
+  // console.log(error)
+  // toast.error(error.message)
+}}
 
 const TablesPage = async () => {
-  const response = await getAllSubCategories()
-  const subCategories = response.data.subCategories
+  // const response = await getAllBrands()
+  // const brands = response.data.brands
+  const brands: any = [{
+    _id:1,
+    brandName:'abc',
+    brandDescription:'desc'
+
+  }]
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Categories" navigation={packageData}/>
+      <Breadcrumb pageName="Brands" navigation={packageData}/>
       <div className="flex flex-col gap-10">
-        <SubCategoryTable listOfSubCategories={subCategories}/>
+        <BrandTable listOfBrands={brands}/>
       </div>
     </DefaultLayout>
   );

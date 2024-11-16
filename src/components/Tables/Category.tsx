@@ -57,7 +57,7 @@ const CategoryTable = ({ listOfCategories }: Props) => {
   };
 
   const router = useRouter();
-  router.refresh();
+  // router.refresh();
 
   async function deleteCategory(id: any) {
     try {

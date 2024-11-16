@@ -64,16 +64,17 @@ const menuGroups = [
             />
           </svg>
         ),
-        label: "Tables",
-        route: "#",
-        children: [
-          { label: "Brand", route: "/tables/brands" },
-          { label: "Banner", route: "/tables/banners" },
-          { label: "Category", route: "/tables/categories" },
-          { label: "SubCategory", route: "/tables/subCategories" },
-          { label: "Product", route: "/tables/products" },
-        ],
+        label: "Brands",
+        route: "/brands",
+       
       },
+      // children: [
+      //   { label: "Brand", route: "/tables/brands" },
+      //   { label: "Banner", route: "/tables/banners" },
+      //   { label: "Category", route: "/tables/categories" },
+      //   { label: "SubCategory", route: "/tables/subCategories" },
+      //   { label: "Product", route: "/tables/products" },
+      // ],
     ],
   },
 ];

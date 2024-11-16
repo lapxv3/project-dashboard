@@ -37,7 +37,7 @@ const SubCategoryTable = ({ listOfSubCategories }: Props) => {
   };
 
   const router = useRouter();
-  router.refresh();
+  // router.refresh();
 
   async function featuredSubCategory(subCategoryId: any) {
     try {

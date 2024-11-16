@@ -24,6 +24,7 @@ export const brandApi = {
     );
   },
   getAllBrands: async function () {
+    
     return await axiosClient.get(
       "brands/getAll/",
     );

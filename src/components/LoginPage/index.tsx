@@ -1,7 +1,7 @@
 "use client";
 import { adminApi } from "@/api/authApi";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Cookies  from "js-cookie";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { serialize } from "object-to-formdata";
 import React from "react";
@@ -17,7 +17,7 @@ const mySchema = z.object({
 type TMySchema = z.infer<typeof mySchema>;
 
 const LoginPage = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
@@ -27,16 +27,15 @@ const LoginPage = () => {
   const submitData = async (data: any) => {
     try {
       const response = await adminApi.adminLogin(data);
-      if(response.data.success==true){
-        window.localStorage.setItem("accessToken",response.data.accessToken)
-        Cookies.set('accessToken',response.data.accessToken)
-        router.push('/');
-        router.refresh()
+      if (response.data.success) {
+        window.localStorage.setItem("accessToken", response.data.accessToken);  //Storing access token to the local storage
+        Cookies.set("accessToken", response.data.accessToken);   //Storing access token to the browser cookies
+        router.push("/");
+        router.refresh();
         toast.success(response.data.message);
-      }else{
-        toast.error(response.data.message);
       }
-    } catch (error:any) {
+      toast.error(response.data.message);
+    } catch (error: any) {
       toast.error(error.message);
     }
   };

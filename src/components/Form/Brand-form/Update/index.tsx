@@ -80,13 +80,15 @@ const BrandForm = ({brandId,getBrand}:Props) => {
 
   const submitData = async (data: any) => {
 try {
-  const formData = serialize(data)
-  const response = await brandApi.updateBrand(brandId, formData);
-  // console.log(response)
-  if(response.data.success){
-    toast.success(response.data.message)
-    router.push("/tables/brands");
-  }
+  // const formData = serialize(data)
+  // const response = await brandApi.updateBrand(brandId, formData);
+  // // console.log(response)
+  // if(response.data.success){
+  //   toast.success(response.data.message)
+  //   router.push("/tables/brands");
+  // }
+  toast.success(response.data.message)
+  router.push("/tables/brands");
 } catch (error:any) {
   toast.error(error.message)
 }
