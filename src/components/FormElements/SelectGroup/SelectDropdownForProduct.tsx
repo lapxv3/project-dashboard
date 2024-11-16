@@ -20,7 +20,7 @@ const SelectDropdown = ({ register, name, data }: SProps) => {
   return (
     <div>
       <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-       Select {name}
+        {name}
       </label>
 
       <div className="relative z-20 rounded-[7px] bg-white dark:bg-dark-2 ">

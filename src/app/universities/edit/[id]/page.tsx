@@ -10,25 +10,26 @@ export const metadata: Metadata = {
   description: "This is Next.js Form Elements page for NextAdmin Dashboard Kit",
 };
 
-async function getBrand(id:string) {
-  try {
-    const response = await brandApi.getBrand(id);
-    // const Products = await response.json();
-    return response.data;
-  } catch (error:any) {
-    toast.error(error.message)
-    console.log(error)
+// async function getBrand(id:string) {
+//   try {
+//     const response = await brandApi.getBrand(id);
+//     // const Products = await response.json();
+//     return response.data;
+//   } catch (error:any) {
+//     toast.error(error.message)
+//     console.log(error)
+32
 
-  }
-}
+//   }
+// }
 
 const FormElementsPage = async ({params}:{params:{id:string}}) => {
-  const response = await getBrand(params.id)
-  const brand = response.data
+  // const response = await getBrand(params.id)
+  const brand = {}
   return (
     <DefaultLayout>
   
-      <BrandEditForm brandId={params.id} getBrand={brand}/>
+      <BrandEditForm/>
     </DefaultLayout>
   );
 };

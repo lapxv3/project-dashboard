@@ -5,6 +5,7 @@ import BrandTable from "@/components/Tables/Brand";
 import { brandApi } from "@/api/brandApi";
 import toast from "react-hot-toast";
 import { PackageNavigation } from "@/types/packageNavigation";
+import UniversityTable from "@/components/Tables/university";
 
 export const metadata: Metadata = {
   title: "Next.js Tables Page | NextAdmin - Next.js Dashboard Kit",
@@ -17,8 +18,8 @@ const packageData: PackageNavigation[] = [
     link:'/'
   },
   {
-    name:'Brands ',
-    link:'/tables/brands'
+    name:'Universities ',
+    link:'/universities'
   },
 ];
 
@@ -42,9 +43,9 @@ const TablesPage = async () => {
   }]
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Brands" navigation={packageData}/>
+      <Breadcrumb pageName="Universities" navigation={packageData}/>
       <div className="flex flex-col gap-10">
-        <BrandTable listOfBrands={brands}/>
+        <UniversityTable listOfUniversity={brands}/>
       </div>
     </DefaultLayout>
   );
