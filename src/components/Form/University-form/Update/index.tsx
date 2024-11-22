@@ -103,7 +103,7 @@ const BrandEditForm = () => {
   return (
     <>
 
-      <Breadcrumb pageName="ADD UNIVERSITY" navigation={navigationData} />
+      <Breadcrumb pageName="EDIT UNIVERSITY" navigation={navigationData} />
       <div className="gap-9 sm:grid-cols-2">
 
         <form onSubmit={handleSubmit(submitData)}>
@@ -112,7 +112,7 @@ const BrandEditForm = () => {
             <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
               <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
                 <h3 className="font-medium text-dark dark:text-white">
-                  Add University
+                  Edit University
                 </h3>
               </div>
               <div className="flex flex-col gap-5.5 p-6.5">
