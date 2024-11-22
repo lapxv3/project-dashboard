@@ -28,7 +28,7 @@ const FormElementsPage = async ({params}:{params:{id:string}}) => {
   return (
     <DefaultLayout>
   
-      <BrandEditForm brandId={params.id} getBrand={brand}/>
+      <BrandEditForm BrandId={params.id} getBrand={brand}/>
     </DefaultLayout>
   );
 };

@@ -1,10 +1,10 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import BrandTable from "@/components/Tables/Brand";
 import { brandApi } from "@/api/brandApi";
 import toast from "react-hot-toast";
 import { PackageNavigation } from "@/types/packageNavigation";
+import CompanyTable from "@/components/Tables/Company";
 
 export const metadata: Metadata = {
   title: "Next.js Tables Page | NextAdmin - Next.js Dashboard Kit",
@@ -17,8 +17,8 @@ const packageData: PackageNavigation[] = [
     link:'/'
   },
   {
-    name:'Brands ',
-    link:'/tables/brands'
+    name:'Companies ',
+    link:'/tables/company'
   },
 ];
 
@@ -34,17 +34,17 @@ try {
 const TablesPage = async () => {
   // const response = await getAllBrands()
   // const brands = response.data.brands
-  const brands: any = [{
+  const companies: any = [{
     _id:1,
-    brandName:'abc',
-    brandDescription:'desc'
+    companyName:'abc',
+    companyDescription:'desc'
 
   }]
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Brands" navigation={packageData}/>
+      <Breadcrumb pageName="Companies" navigation={packageData}/>
       <div className="flex flex-col gap-10">
-        <BrandTable listOfBrands={brands}/>
+        <CompanyTable listOfBrands={companies}/>
       </div>
     </DefaultLayout>
   );

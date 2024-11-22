@@ -1,7 +1,7 @@
 import { axiosClient } from "./config/axiosConfig";
 
 export const brandApi = {
-  createBrand: async function (body: any) {
+  createCompany: async function (body: any) {
     return await axiosClient.post(
       "brands/",
       body,

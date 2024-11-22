@@ -29,9 +29,10 @@ import { PackageNavigation } from "@/types/packageNavigation";
 import SelectDropdown from "@/components/FormElements/SelectGroup/SelectDropdownForProduct";
 
 const mySchema = z.object({
-  brandName: string().trim().min(1, { message: "Brand Name is required." }),
-  brandDescription: string().trim(),
-  brandLogo: any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+  companyId: z.string().trim().min(1, { message: "Company Id is required." }),
+  companyName: z.string().trim().min(1, { message: "Company Name is required." }),
+  brandDescription: z.string().trim(),
+  brandLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
       (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
       "Only .jpg, .jpeg, .png and .webp formats are supported."),
@@ -47,8 +48,8 @@ const navigationData: PackageNavigation[] = [
     link: '/'
   },
   {
-    name: 'Universities / ',
-    link: '/universities'
+    name: 'Companies / ',
+    link: '/companies'
   },
   {
     name: 'Add ',
@@ -91,8 +92,8 @@ const BrandForm = () => {
       //   toast.success('Brand Added Successfully.')
       //   router.push("/tables/brands");
       // }
-      toast.success('Brand Added Successfully.')
-      router.push("/tables/brands");
+      toast.success('Company Added Successfully.')
+      router.push("/tables/company");
     } catch (error: any) {
       if (error.response.status == 404) {
         toast.error(error.message)
@@ -103,7 +104,7 @@ const BrandForm = () => {
   return (
     <>
 
-      <Breadcrumb pageName="ADD UNIVERSITY" navigation={navigationData} />
+      <Breadcrumb pageName="ADD COMPANY" navigation={navigationData} />
       <div className="gap-9 sm:grid-cols-2">
 
         <form onSubmit={handleSubmit(submitData)}>
@@ -112,40 +113,40 @@ const BrandForm = () => {
             <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
               <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
                 <h3 className="font-medium text-dark dark:text-white">
-                  Add University
+                  Add Company
                 </h3>
               </div>
               <div className="flex flex-col gap-5.5 p-6.5">
                 <div>
                   <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                    University Id
+                    Company Id
                   </label>
                   <input
-                    {...register("universityId")}
+                    {...register("companyId")}
                     type="text"
-                    placeholder="University Id"
+                    placeholder="Company Id"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.brandName && (
+                  {errors.companyId && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyId.message}
                     </p>
                   )}
                 </div>
 
                 <div>
                   <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                    University Name
+                    Company Name
                   </label>
                   <input
-                    {...register("universityName")}
+                    {...register("companyName")}
                     type="text"
-                    placeholder="University Name"
+                    placeholder="Company Name"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>
@@ -155,7 +156,7 @@ const BrandForm = () => {
                     Address
                   </label>
                   <textarea
-                    {...register("Address")}
+                    {...register("address")}
                     rows={6}
                     placeholder="Address"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
@@ -173,14 +174,14 @@ const BrandForm = () => {
                     Email-Id
                   </label>
                   <input
-                    {...register("Email-Id")}
+                    {...register("email-Id")}
                     type="email"
                     placeholder="Email-Id"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>
@@ -190,14 +191,14 @@ const BrandForm = () => {
                     Contact Number
                   </label>
                   <input
-                    {...register("Contact Number")}
+                    {...register("contact Number")}
                     type="number"
                     placeholder="Contact Number"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>
@@ -212,9 +213,9 @@ const BrandForm = () => {
                     placeholder="Website URL"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>
@@ -232,35 +233,23 @@ const BrandForm = () => {
                     placeholder="Established Year"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   /> */}
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <SelectDropdown
-                    data={[{ _id: 1, name: 'pending' }]}
-                    name={" Accreditation Status"}
-                    register={register("productBrand")}
-                  />
-                  {errors.brandName && (
-                    <p className="text-sm text-red-600">
-                      {errors.brandName.message}
-                    </p>
-                  )}
-                </div>
-                <div>
                   <DropzoneWrapper>
                     <Typography variant='text-body-sm' fontWeight={500} color="textPrimary" sx={{ mb: 2.5 }}>
-                      University Logo
+                      Company Logo
                       {!!errors.universityLogo && (
                         <span style={{ color: 'red', fontSize: '14px', position: 'absolute', right: '65px' }}>Invalid Image format {!!errors.brandLogo}</span>
                       )}
                     </Typography>
                     <Controller
-                      name='University Logo'
+                      name='Company Logo'
                       control={control}
                       defaultValue=''
                       render={({ field }) => (
@@ -271,31 +260,14 @@ const BrandForm = () => {
                     />
 
                     <div>
-                      <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                        Dean/Director Name
-                      </label>
-                      <input
-                        {...register("Dean/Director Name")}
-                        type="text"
-                        placeholder="Dean/Director Name"
-                        className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
-                      />
-                      {errors.brandName && (
-                        <p className="text-sm text-red-600">
-                          {errors.brandName.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
                   <SelectDropdown
                     data={[{ _id: 1, name: 'india' },{ _id: 2, name: 'uae' }]}
                     name={" country"}
                     register={register("productBrand")}
                   />
-                  {errors.brandName && (
+                  {errors.companyName && (
                     <p className="text-sm text-red-600">
-                      {errors.brandName.message}
+                      {errors.companyName.message}
                     </p>
                   )}
                 </div>

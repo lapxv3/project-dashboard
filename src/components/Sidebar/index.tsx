@@ -64,8 +64,8 @@ const menuGroups = [
             />
           </svg>
         ),
-        label: "Brands",
-        route: "/brands",
+        label: "Companies",
+        route: "/companies",
        
       },
       {
