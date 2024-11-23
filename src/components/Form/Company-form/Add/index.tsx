@@ -38,7 +38,7 @@ const mySchema = z.object({
   establishedYear: z.string().trim().min(1, { message: "Year is required." }),
   country: z.string().trim().min(1, { message: "Counrty is required." }),
   brandDescription: z.string().trim(),
-  brandLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+  companyLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
       (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
       "Only .jpg, .jpeg, .png and .webp formats are supported."),
@@ -250,7 +250,7 @@ const BrandForm = () => {
                   <DropzoneWrapper>
                     <Typography variant='text-body-sm' fontWeight={500} color="textPrimary" sx={{ mb: 2.5 }}>
                       Company Logo
-                      {!!errors.universityLogo && (
+                      {!!errors.companyLogo && (
                         <span style={{ color: 'red', fontSize: '14px', position: 'absolute', right: '65px' }}>Invalid Image format {!!errors.brandLogo}</span>
                       )}
                     </Typography>
