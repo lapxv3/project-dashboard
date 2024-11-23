@@ -34,6 +34,11 @@ const mySchema = z.object({
   address: z.string().trim().min(1, { message: "Address is required." }),
   email_id: z.string().trim().min(1, { message: "Email_id is required." }),
   contactNumber: z.string().trim().min(1, { message: "contact Number is required." }),
+  websiteURL: z.string().trim().min(1, { message: "Website URL is required." }),
+  establishedYear: z.string().trim().min(1, { message: "Year is required." }),
+  accreditationStatus: z.string().trim().min(1, { message: "Status is required." }),
+  country: z.string().trim().min(1, { message: "Counrty is required." }),
+  deanDirectorName: z.string().trim().min(1, { message: "Name is required." }),
   universityDescription: z.string().trim(),
   universityLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
@@ -211,14 +216,14 @@ const UniversityAddForm = () => {
                     Website URL
                   </label>
                   <input
-                    {...register("website URL")}
+                    {...register("websiteURL")}
                     type="text"
                     placeholder="Website URL"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.universityName && (
+                  {errors.websiteURL && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.websiteURL.message}
                     </p>
                   )}
                 </div>
@@ -226,7 +231,7 @@ const UniversityAddForm = () => {
 
                 <div>
                   <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                    Established Year
+                    establishedYear
                   </label>
                   <DatePickerOne />
 
@@ -236,9 +241,9 @@ const UniversityAddForm = () => {
                     placeholder="Established Year"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   /> */}
-                  {errors.universityName && (
+                  {errors.establishedYear && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.establishedYear.message}
                     </p>
                   )}
                 </div>
@@ -247,11 +252,11 @@ const UniversityAddForm = () => {
                   <SelectDropdown
                     data={[{ _id: 1, name: 'pending' }]}
                     name={" Accreditation Status"}
-                    register={register("productBrand")}
+                    register={register("accreditationStatus")}
                   />
-                  {errors.universityName && (
+                  {errors.accreditationStatus && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.accreditationStatus.message}
                     </p>
                   )}
                 </div>
@@ -279,14 +284,14 @@ const UniversityAddForm = () => {
                         Dean/Director Name
                       </label>
                       <input
-                        {...register("dean/director Name")}
+                        {...register("deanDirectorName")}
                         type="text"
                         placeholder="Dean/Director Name"
                         className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                       />
-                      {errors.universityName && (
+                      {errors.deanDirectorName && (
                         <p className="text-sm text-red-600">
-                          {errors.universityName.message}
+                          {errors.deanDirectorName.message}
                         </p>
                       )}
                     </div>
@@ -295,11 +300,11 @@ const UniversityAddForm = () => {
                   <SelectDropdown
                     data={[{ _id: 1, name: 'india' },{ _id: 2, name: 'uae' }]}
                     name={" country"}
-                    register={register("productBrand")}
+                    register={register("country")}
                   />
-                  {errors.universityName && (
+                  {errors.country && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.country.message}
                     </p>
                   )}
                 </div>

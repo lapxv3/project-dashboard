@@ -34,6 +34,9 @@ const mySchema = z.object({
   address: z.string().trim().min(1, { message: "Address is required." }),
   email_id: z.string().trim().min(1, { message: "Email_id is required." }),
   contactNumber: z.string().trim().min(1, { message: "Contact Number is required." }),
+  websiteURL: z.string().trim().min(1, { message: "Website URL is required." }),
+  establishedYear: z.string().trim().min(1, { message: "Year is required." }),
+  country: z.string().trim().min(1, { message: "Counrty is required." }),
   brandDescription: z.string().trim(),
   brandLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
@@ -211,14 +214,14 @@ const BrandForm = () => {
                     Website URL
                   </label>
                   <input
-                    {...register("Website URL")}
+                    {...register("websiteURL")}
                     type="text"
                     placeholder="Website URL"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.companyName && (
+                  {errors.websiteURL && (
                     <p className="text-sm text-red-600">
-                      {errors.companyName.message}
+                      {errors.websiteURL.message}
                     </p>
                   )}
                 </div>
@@ -226,7 +229,7 @@ const BrandForm = () => {
 
                 <div>
                   <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                    Established Year
+                    establishedYear
                   </label>
                   <DatePickerOne />
 
@@ -236,9 +239,9 @@ const BrandForm = () => {
                     placeholder="Established Year"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   /> */}
-                  {errors.companyName && (
+                  {errors.establishedYear && (
                     <p className="text-sm text-red-600">
-                      {errors.companyName.message}
+                      {errors.establishedYear.message}
                     </p>
                   )}
                 </div>
@@ -266,11 +269,11 @@ const BrandForm = () => {
                   <SelectDropdown
                     data={[{ _id: 1, name: 'india' },{ _id: 2, name: 'uae' }]}
                     name={" country"}
-                    register={register("productBrand")}
+                    register={register("country")}
                   />
-                  {errors.companyName && (
+                  {errors.country && (
                     <p className="text-sm text-red-600">
-                      {errors.companyName.message}
+                      {errors.country.message}
                     </p>
                   )}
                 </div>

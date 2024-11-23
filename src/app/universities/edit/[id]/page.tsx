@@ -28,7 +28,6 @@ const FormElementsPage = async ({params}:{params:{id:string}}) => {
   const brand = {}
   return (
     <DefaultLayout>
-  
       <BrandEditForm/>
     </DefaultLayout>
   );
