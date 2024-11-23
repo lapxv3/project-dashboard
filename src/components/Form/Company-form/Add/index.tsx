@@ -31,6 +31,9 @@ import SelectDropdown from "@/components/FormElements/SelectGroup/SelectDropdown
 const mySchema = z.object({
   companyId: z.string().trim().min(1, { message: "Company Id is required." }),
   companyName: z.string().trim().min(1, { message: "Company Name is required." }),
+  address: z.string().trim().min(1, { message: "Address is required." }),
+  email_id: z.string().trim().min(1, { message: "Email_id is required." }),
+  contactNumber: z.string().trim().min(1, { message: "Contact Number is required." }),
   brandDescription: z.string().trim(),
   brandLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
@@ -161,9 +164,9 @@ const BrandForm = () => {
                     placeholder="Address"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   ></textarea>
-                  {errors.brandDescription && (
+                  {errors.address && (
                     <p className="text-sm text-red-600">
-                      {errors.brandDescription.message}
+                      {errors.address.message}
                     </p>
                   )}
                 </div>
@@ -174,14 +177,14 @@ const BrandForm = () => {
                     Email-Id
                   </label>
                   <input
-                    {...register("email-Id")}
+                    {...register("email_id")}
                     type="email"
-                    placeholder="Email-Id"
+                    placeholder="Email_id"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.companyName && (
+                  {errors.email_id && (
                     <p className="text-sm text-red-600">
-                      {errors.companyName.message}
+                      {errors.email_id.message}
                     </p>
                   )}
                 </div>
@@ -191,14 +194,14 @@ const BrandForm = () => {
                     Contact Number
                   </label>
                   <input
-                    {...register("contact Number")}
+                    {...register("contactNumber")}
                     type="number"
                     placeholder="Contact Number"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.companyName && (
+                  {errors.contactNumber && (
                     <p className="text-sm text-red-600">
-                      {errors.companyName.message}
+                      {errors.contactNumber.message}
                     </p>
                   )}
                 </div>

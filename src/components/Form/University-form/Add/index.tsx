@@ -29,8 +29,11 @@ import { PackageNavigation } from "@/types/packageNavigation";
 import SelectDropdown from "@/components/FormElements/SelectGroup/SelectDropdownForProduct";
 
 const mySchema = z.object({
-  universityId: z.string().trim().min(1, { message: "UniversityId is required." }),
-  universityName: z.string().trim().min(1, { message: "UniversityName is required." }),
+  universityId: z.string().trim().min(1, { message: "University Id is required." }),
+  universityName: z.string().trim().min(1, { message: "University Name is required." }),
+  address: z.string().trim().min(1, { message: "Address is required." }),
+  email_id: z.string().trim().min(1, { message: "Email_id is required." }),
+  contactNumber: z.string().trim().min(1, { message: "contact Number is required." }),
   universityDescription: z.string().trim(),
   universityLogo: z.any().refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
     .refine(
@@ -127,9 +130,9 @@ const UniversityAddForm = () => {
                     placeholder="University Id"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.universityName && (
+                  {errors.universityId && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.universityId.message}
                     </p>
                   )}
                 </div>
@@ -161,9 +164,9 @@ const UniversityAddForm = () => {
                     placeholder="Address"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   ></textarea>
-                  {errors.universityDescription && (
+                  {errors.address && (
                     <p className="text-sm text-red-600">
-                      {errors.universityDescription.message}
+                      {errors.address.message}
                     </p>
                   )}
                 </div>
@@ -174,14 +177,14 @@ const UniversityAddForm = () => {
                     Email-Id
                   </label>
                   <input
-                    {...register("email-Id")}
+                    {...register("email_id")}
                     type="email"
-                    placeholder="Email-Id"
+                    placeholder="Email_Id"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.universityName && (
+                  {errors.email_id && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.email_id.message}
                     </p>
                   )}
                 </div>
@@ -191,14 +194,14 @@ const UniversityAddForm = () => {
                     Contact Number
                   </label>
                   <input
-                    {...register("contact Number")}
+                    {...register("contactNumber")}
                     type="number"
                     placeholder="Contact Number"
                     className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                   />
-                  {errors.universityName && (
+                  {errors.contactNumber && (
                     <p className="text-sm text-red-600">
-                      {errors.universityName.message}
+                      {errors.contactNumber.message}
                     </p>
                   )}
                 </div>
