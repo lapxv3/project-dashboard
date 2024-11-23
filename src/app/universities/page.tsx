@@ -35,17 +35,19 @@ try {
 const TablesPage = async () => {
   // const response = await getAllBrands()
   // const brands = response.data.brands
-  const brands: any = [{
+  const universities: any = [{
     _id:1,
-    brandName:'abc',
-    brandDescription:'desc'
+    universityName:'univ1',
+    year:'1999',
+    country:'india',
+    status:'active',
 
   }]
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Universities" navigation={packageData}/>
       <div className="flex flex-col gap-10">
-        <UniversityTable listOfUniversity={brands}/>
+        <UniversityTable listOfUniversity={universities}/>
       </div>
     </DefaultLayout>
   );

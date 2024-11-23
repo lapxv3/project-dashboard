@@ -36,8 +36,10 @@ const TablesPage = async () => {
   // const brands = response.data.brands
   const companies: any = [{
     _id:1,
-    companyName:'abc',
-    companyDescription:'desc'
+    companyName:'com1',
+    year:'2002',
+    country:'india',
+    status:'active',
 
   }]
   return (

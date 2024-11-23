@@ -25,7 +25,6 @@ const CompanyTable = ({ listOfBrands }: Props) => {
   //   (currentPage - 1) * itemsPerPage,
   //   currentPage * itemsPerPage,
   // );
-  const brandData:any = [];
 
   // const handlePageChange = (pageNumber: number) => {
   //   if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -125,13 +124,13 @@ const CompanyTable = ({ listOfBrands }: Props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {brandData.map((packageItem: any, index:number) => (
+                  {listOfBrands.map((packageItem: any, index:number) => (
                     <tr key={index}>
                       <td
                         className={`border-[#eee] px-4 py-4 dark:border-dark-3 xl:pl-7.5 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
                       >
                         <h5 className="text-dark dark:text-white">
-                          {packageItem.brandName}
+                          {packageItem._id}
                         </h5>
                         {/* <p className="mt-[3px] text-body-sm font-medium">
                     ${packageItem.price}
@@ -141,21 +140,28 @@ const CompanyTable = ({ listOfBrands }: Props) => {
                         className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
                       >
                         <p className="text-dark dark:text-white">
-                          {packageItem.brandDescription}
+                          {packageItem.companyName}
                         </p>
                       </td>
                       <td
                         className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
                       >
                         <p className="text-dark dark:text-white">
-                          {packageItem.brandDescription}
+                          {packageItem.year}
                         </p>
                       </td>
                       <td
                         className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
                       >
                         <p className="text-dark dark:text-white">
-                          {packageItem.brandDescription}
+                          {packageItem.country}
+                        </p>
+                      </td>
+                      <td
+                        className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
+                      >
+                        <p className="text-dark dark:text-white">
+                          {packageItem.status}
                         </p>
                       </td>
                       <td
@@ -253,10 +259,10 @@ const CompanyTable = ({ listOfBrands }: Props) => {
               >
                 &raquo;
               </button> */}
-            </div>
+         </div>
       </div>
     </>
   );
 };
 
-export default CompanyTable;
+export default CompanyTable;  
