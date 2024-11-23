@@ -102,19 +102,19 @@ const CompanyTable = ({ listOfBrands }: Props) => {
               <table className="w-full ">
                 <thead>
                   <tr className="bg-[#F7F9FC] text-left dark:bg-dark-2">
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                     Company ID
                     </th>
-                    <th className="min-w-[220px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[220px] px-4 py-4 font-medium text-dark dark:text-white">
                       Company Name
                     </th>
                     <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                     Established Year
                     </th>
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                       Country
                     </th>
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                       Status
                     </th>
                     <th className="min-w-[120px] px-4 py-4 font-medium text-dark dark:text-white"></th>

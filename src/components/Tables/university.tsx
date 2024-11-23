@@ -103,19 +103,19 @@ const UniversityTable = ({ listOfUniversity: listOfBrands }: Props) => {
               <table className="w-full ">
                 <thead>
                   <tr className="bg-[#F7F9FC] text-left dark:bg-dark-2">
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                     University ID
                     </th>
-                    <th className="min-w-[220px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                       University Name
                     </th>
                     <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                     Established Year
                     </th>
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                       Country
                     </th>
-                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
+                    <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
                       Status
                     </th>
                     <th className="min-w-[120px] px-4 py-4 font-medium text-dark dark:text-white"></th>
@@ -130,9 +130,9 @@ const UniversityTable = ({ listOfUniversity: listOfBrands }: Props) => {
                       <td
                         className={`border-[#eee] px-4 py-4 dark:border-dark-3 xl:pl-7.5 ${index === packageItem.length - 1 ? "border-b-0" : "border-b"}`}
                       >
-                        <h5 className="text-dark dark:text-white">
+                        <h6 className="text-dark dark:text-white">
                           {packageItem._id}
-                        </h5>
+                        </h6>
                         {/* <p className="mt-[3px] text-body-sm font-medium">
                     ${packageItem.price}
                   </p> */}
@@ -177,7 +177,7 @@ const UniversityTable = ({ listOfUniversity: listOfBrands }: Props) => {
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
                               height="20"
-                              viewBox="0 0 24 24"
+                              viewBox="0 0 20 20"
                             >
                               <g
                                 fill="none"
