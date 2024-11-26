@@ -229,7 +229,7 @@ const BrandForm = () => {
 
                 <div>
                   <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                    establishedYear
+                    Established Year
                   </label>
                   <DatePickerOne />
 
