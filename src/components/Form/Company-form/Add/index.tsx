@@ -63,7 +63,7 @@ const navigationData: PackageNavigation[] = [
   },
 ];
 
-const BrandForm = () => {
+const CompanyAddForm = () => {
 
   const [internal, setInternal] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -310,4 +310,4 @@ const BrandForm = () => {
   );
 };
 
-export default BrandForm;
+export default CompanyAddForm;
